@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Buy electronics, TVs, appliances and more online at eBuy."
+    />
+    <meta name="author" content="eBuy Team" />
+
+    <title>eBuy</title>
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      .card-img-top {
+        height: 200px; /* apne hisaab se adjust kar sakte ho */
+        object-fit: contain; /* image crop hoke box fill karegi */
+        width: 100%; /* card ki width ke hisaab se stretch hogi */
+      }
+
+      .card-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* max 2 line show hogi */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-height: 3rem; /* sabhi titles same height lenge */
+      }
+
+      body {
+        padding-top: 90px;
+      }
+    </style>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <header>
+      <nav
+        class="navbar navbar-expand-lg text-body-light bg-warning-subtle fixed-top"
+        style="background-color: #ff7104"
+        data-bs-theme="light"
+      >
+        <div class="container-fluid fs-4">
+          <a class="navbar-brand" href="#">
+            <img
+              class="rounded-circle"
+              src="ebaylogo.png"
+              alt="eBuy"
+              height="55"
+            />
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navList">
+              <li class="nav-item mx-2">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  id="Home"
+                  href="index.html"
+                  >Home</a
+                >
+              </li>
+
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="" id="Clothes">Clothes</a>
+              </li>
+
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="" id="Electronics">Electronics</a>
+              </li>
+
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="" id="Jewelery">Jewelery</a>
+              </li>
+            </ul>
+            <form class="me-auto d-flex" role="search">
+              <input
+                class="form-control me-2 fs-5"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success fs-5" type="submit">
+                Search
+              </button>
+            </form>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="order.html" id="Order">Order</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link active" aria-current="page" href="cart.html">
+                  Cart
+                  <i
+                    class="fa-solid fa-cart-shopping position-relative"
+                    id="shoppingCart"
+                  >
+                  </i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="flex-grow-1">
+      <!-- Page content will go here -->
+      <div class="container">
+        <div class="row my-3" id="productCards"></div>
+      </div>
+    </main>
+    <footer class="bg-dark text-light py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5 class="text-uppercase border-bottom pb-2">eBuy</h5>
+            <p>
+              eBuy is your one-stop shop for electronics, TVs, appliances, and
+              more. We offer a wide selection of products at competitive prices,
+              ensuring a seamless shopping experience.
+            </p>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                123 Ebuy Street, Tech City, 56789
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                contact@ebuy.com
+              </li>
+              <li>
+                <i class="fas fa-phone-alt"></i>
+                +1 234 567 8900
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <h5 class="text-uppercase border-bottom pb-2">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-light text-decoration-none">Home</a>
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Electronics</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >TVs & Appliances</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Sports, Books & More</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <h5 class="text-uppercase border-bottom pb-2">Follow Us</h5>
+            <a href="#" class="text-light me-3"
+              ><i class="fab fa-facebook-f fa-2x"></i
+            ></a>
+            <a href="#" class="text-light me-3"
+              ><i class="fab fa-twitter fa-2x"></i
+            ></a>
+            <a href="#" class="text-light me-3"
+              ><i class="fab fa-instagram fa-2x"></i
+            ></a>
+            <a href="#" class="text-light"
+              ><i class="fab fa-linkedin-in fa-2x"></i
+            ></a>
+          </div>
+        </div>
+
+        <hr class="my-3" style="border-color: #6c757d" />
+
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+            <p class="mb-0">&copy; 2025 eBuy. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <i class="fab fa-cc-visa fa-2x me-2"></i>
+            <i class="fab fa-cc-mastercard fa-2x me-2"></i>
+            <i class="fab fa-cc-paypal fa-2x me-2"></i>
+            <i class="fab fa-cc-amex fa-2x"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Trigger Button -->
+    <!-- <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#playerModal"
+    >
+    </button> -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="playerModal"
+      tabindex="-1"
+      aria-labelledby="playerModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3f7bf44392.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
