@@ -1,3 +1,5 @@
 {
-  "root": "index"
+  "rewrites": [
+    { "source": "/", "destination": "/index/index.html" }
+  ]
 }
