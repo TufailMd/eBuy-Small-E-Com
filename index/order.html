@@ -100,7 +100,7 @@
       <h2 class="text-center">Your Orders</h2>
     </div>
 
-    <main class="container my-4" id="orderContainer"></main>
+    <main class="container my-4 flex-grow-1" id="orderContainer"></main>
 
     <footer class="bg-dark text-light py-4">
       <div class="container">
@@ -225,7 +225,7 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <!-- <script src="app.js"></script> -->
+    <script src="./app.js"></script>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script> -->
     <script>
@@ -296,6 +296,7 @@
       }
 
       loadOrders();
+      updateCart();
     </script>
   </body>
 </html>
