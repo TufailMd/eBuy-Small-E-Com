@@ -10,7 +10,7 @@ The app allows users to browse products, search, filter by category, add items t
 
 ## 🌐 Live Demo
 
-Experience the application live here: 👉 
+Experience the application live here: 👉 https://e-buy-small-e-com.vercel.app/index.html
 ## 🚀 Features
 
 ### Product Listing
