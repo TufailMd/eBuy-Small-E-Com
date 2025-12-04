@@ -133,6 +133,7 @@ searchForm.addEventListener("submit", function (e) {
   e.preventDefault();
   let query = searchInput.value.trim();
   displayProduct("", query);
+  searchInput.value = "";
 });
 
 // async function displayProduct(category = "") {
@@ -182,7 +183,9 @@ function showModal(product) {
             <h3><span class="badge text-bg-warning">${
               product.rating.rate
             } &#9733;</span></h3>
-            <h4 class="card-title"><i class="fa-solid fa-indian-rupee-sign"></i> ${parseFloat(price).toFixed(1)}</h4>
+            <h4 class="card-title"><i class="fa-solid fa-indian-rupee-sign"></i> ${parseFloat(
+              price
+            ).toFixed(1)}</h4>
 
           </div>
 
@@ -375,41 +378,52 @@ function cretePlaceOrderDiv() {
   return placeOrder;
 }
 
+function changePage() {
+  window.location.href = "index.html";
+}
+
 navList.addEventListener("click", (e) => {
-  e.stopPropagation();
   e.preventDefault();
+  e.stopPropagation();
 
-  if (e.target.tagName.toLowerCase() === "a") {
-    if (window.location.pathname.endsWith("cart.html")) {
-      localStorage.setItem("lastCategory", e.target.textContent);
-      window.location.href = "index.html";
-    } else {
-      let heading = document.createElement("h1");
-      console.log(e.target.textContent);
+  const target = e.target;
+  if (target.tagName.toLowerCase() !== "a") return;
 
-      productCards.innerHTML = "";
+  const category = target.textContent.trim();
+  const currentPath = window.location.pathname;
 
-      document.querySelectorAll(".nav-link").forEach((item) => {
-        item.classList.remove("active");
-      });
+  // Pages where clicking category should redirect to Home
+  const redirectPages = ["cart.html", "order.html"];
 
-      e.target.classList.add("active");
-
-      if (e.target.textContent == "Home") {
-        displayProduct();
-      } else if (e.target.textContent == "Clothes") {
-        heading.innerText = "Clothes";
-        displayProduct("clothing");
-      } else if (e.target.textContent == "Electronics") {
-        heading.innerText = "Electronics";
-        displayProduct("electronics");
-      } else if (e.target.textContent == "Jewelery") {
-        heading.innerText = "Jewelery";
-        displayProduct("jewelery");
-      }
-      productCards.insertAdjacentElement("afterbegin", heading);
-    }
+  if (redirectPages.some((page) => currentPath.endsWith(page))) {
+    localStorage.setItem("lastCategory", category);
+    window.location.href = "index.html";
+    return;
   }
+
+  // Remove active class
+  document
+    .querySelectorAll(".nav-link")
+    .forEach((item) => item.classList.remove("active"));
+  target.classList.add("active");
+
+  // Clear old content
+  productCards.innerHTML = "";
+
+  // Create heading
+  let heading = document.createElement("h1");
+  heading.innerText = category;
+  productCards.insertAdjacentElement("afterbegin", heading);
+
+  // Load products based on category
+  const categoryMap = {
+    Home: "",
+    Clothes: "clothing",
+    Electronics: "electronics",
+    Jewelery: "jewelery",
+  };
+
+  displayProduct(categoryMap[category]);
 });
 
 if (document.location.pathname.endsWith("index.html")) {
