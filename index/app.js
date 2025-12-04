@@ -426,7 +426,7 @@ navList.addEventListener("click", (e) => {
   displayProduct(categoryMap[category]);
 });
 
-if (document.location.pathname.endsWith("index.html")) {
+if (location.pathname === "/" || location.pathname.includes("index")) {
   const lastCategory = localStorage.getItem("lastCategory");
 
   if (lastCategory) {
